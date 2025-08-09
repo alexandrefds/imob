@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Ad\AdCreateController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -13,3 +14,8 @@ Route::get('dashboard', function () {
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
+
+
+Route::prefix('ad')->group(function () {
+    Route::post('/', AdCreateController::class)->name('ad.create');
+});
